@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "todo",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.5"
+    "astro": "^5.13.5",
+    "sortablejs": "^1.15.6"
   }
 }

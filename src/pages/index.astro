@@ -1,11 +1,90 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import ProgressIcon from "../components/svgs/ProgressIcon.astro";
+import DeleteIcon from "../components/svgs/DeleteIcon.astro";
+import TodolistIcon from "../components/svgs/TodolistIcon.astro";
+import AddIcon from "../components/svgs/AddIcon.astro";
+import DoneIcon from "../components/svgs/DoneIcon.astro";
+import NotStartedIcon from "../components/svgs/NotStartedIcon.astro";
 ---
 
 <Layout>
-	<Welcome />
+	<header id="app-header">
+		<TodolistIcon />
+		<h1 id="app-title">Todo App</h1>
+		<AddIcon />
+	</header>
+	<dialog id="new-task-dialog">
+		<form id="new-task-form" method="dialog">
+			<h2>Add New Task</h2>
+			<label for="new-task-title">Task Title:</label>
+			<input
+				type="text"
+				id="new-task-title"
+				name="new-task-title"
+				placeholder="Enter task title"
+				required
+			/>
+			<label for="new-task-desc">Task Description:</label>
+			<textarea
+				id="new-task-desc"
+				name="new-task-desc"
+				placeholder="Enter task description"></textarea>
+			<div class="dialog-buttons">
+				<button type="submit" id="add-task-btn">Add Task</button>
+				<button type="button" id="cancel-btn">Cancel</button>
+			</div>
+		</form>
+	</dialog>
+	<section id="not-started-section" class="task-section">
+		<h2 class="task-category">Not yet started</h2>
+		<ul id="tasks-not-started" class="task-list" data-state="not-started">
+			<!-- <li class="task-item" draggable="true">
+				<div class="task-item-wrap">
+					<NotStartedIcon />
+					<span class="task-details"
+						><h3 class="task-title">My third task</h3><p
+							class="task-desc"
+						>
+							descripton 3
+						</p></span
+					><DeleteIcon />
+				</div>
+			</li> -->
+		</ul>
+	</section>
+	<section id="progress-section" class="task-section">
+		<h2 class="task-category">Tasks in Progress</h2>
+		<ul id="in-progress-tasks" class="task-list" data-state="in-progress">
+			<!-- <li class="task-item" draggable="true">
+				<div class="task-item-wrap">
+					<ProgressIcon />
+					<span class="task-details"
+						><h3 class="task-title">My second task</h3><p
+							class="task-desc"
+						>
+							descripton 2
+						</p>
+					</span><DeleteIcon />
+				</div>
+			</li> -->
+		</ul>
+	</section>
+	<section id="completed-section" class="task-section">
+		<h2 class="task-category">Done tasks</h2>
+		<ul id="done-tasks" class="task-list" data-state="done">
+			<!-- <li class="task-item" draggable="true">
+				<div class="task-item-wrap">
+					<DoneIcon />
+					<span class="task-details"
+						><h3 class="task-title">My first task</h3><p
+							class="task-desc"
+						>
+							descripton 1
+						</p>
+					</span><DeleteIcon />
+				</div>
+			</li> -->
+		</ul>
+	</section>
 </Layout>
